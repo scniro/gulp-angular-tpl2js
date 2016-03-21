@@ -23,5 +23,8 @@
     "readable-stream": "^2.0.6",
     "vinyl-bufferstream": "^1.0.1",
     "angular-tpl2js": "^0.0.2"
+  },
+  "scripts": {
+    "test": "gulp test"
   }
 }
