@@ -1,7 +1,7 @@
 angular.module('mod').directive('dir', function () {
     return {
         scope: {},
-        templateUrl: 'templates/ng.template.basic.html',
+        templateUrl: 'templates/template.html',
         link: function (scope, elem, attrs) {
         }
     }
