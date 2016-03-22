@@ -18,11 +18,11 @@
     "mocha": "^2.4.5"
   },
   "dependencies": {
+    "angular-tpl2js": "0.0.4",
     "gulp-util": "^3.0.7",
     "object-assign": "^4.0.1",
     "readable-stream": "^2.0.6",
-    "vinyl-bufferstream": "^1.0.1",
-    "angular-tpl2js": "^0.0.2"
+    "vinyl-bufferstream": "^1.0.1"
   },
   "scripts": {
     "test": "gulp test"

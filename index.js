@@ -22,9 +22,7 @@ module.exports = function gulpAngularTpl2js(options) {
                     fileOptions.relativeTo = path.dirname(path.resolve(options.root || file.path));
                 }
 
-                var js = buf.toString();
-
-                tpl2js.inline(js, fileOptions || {}, function (result) {
+                tpl2js.inline(buf, fileOptions || {}, function (result) {
                     done(null, new Buffer(result));
                 });
             });
