@@ -54,4 +54,41 @@ describe('gulp-angular-tpl2js: base functionality', function () {
                 done();
             });
     });
+
+    it('should produce the expected files: multiple', function (done) {
+        var expected1 = 'angular.module(\'mod\').directive(\'dir\', function () {' +
+            'return {' +
+            'scope: {},' +
+            'template: \'<span>basic {{ stuff }}</span>\',' +
+            'link: function (scope, elem, attrs) {' +
+            '}' +
+            '}' +
+            '});';
+
+        var expected2 = 'angular.module(\'mod\').directive(\'dir2\', function () {' +
+            'return {' +
+            'scope: {},' +
+            'template: \'<div>like woah</div>\',' +
+            'link: function (scope, elem, attrs) {' +
+            '}' +
+            '}' +
+            '});';
+
+        var actual1, actual2;
+
+        gulp.src('test/fixtures/js/*.js')
+            .pipe(tpl2js())
+            .on('data', function (file) {
+
+                if (!actual1)
+                    actual1 = file.contents.toString();
+                else
+                    actual2 = file.contents.toString();
+            })
+            .once('end', function () {
+                expect(actual1.min()).to.equal(expected1.min());
+                expect(actual2.min()).to.equal(expected2.min());
+                done();
+            });
+    });
 });
