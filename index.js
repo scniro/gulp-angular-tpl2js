@@ -23,9 +23,13 @@ module.exports = function gulpAngularTpl2js(options) {
                 }
 
                 tpl2js.inline(buf, fileOptions || {}, function (err, result) {
+
+                    if(err) {
+                        done(err);
+                        return;
+                    }
+
                     done(null, new Buffer(result));
-                }, function (err) {
-                    done(err)
                 });
             });
 

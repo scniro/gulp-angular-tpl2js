@@ -1,6 +1,9 @@
 var gulp = require('gulp');
 var chai = require('chai');
 var tpl2js = require('..');
+var vfsFake = require('vinyl-fs-fake');
+var File = require('vinyl');
+var PluginError = require('gulp-util').PluginError;
 var expect = chai.expect;
 
 chai.should();
@@ -88,6 +91,22 @@ describe('gulp-angular-tpl2js: base functionality', function () {
             .once('end', function () {
                 expect(actual1.min()).to.equal(expected1.min());
                 expect(actual2.min()).to.equal(expected2.min());
+                done();
+            });
+    });
+
+    it('should force a plugin error', function (done) {
+
+        var js = new File({
+            path: '/',
+            contents: new Buffer('angular.module(\'mod\').directive(\'dir\', function () { return { scope: {}, templateUrl: \'fixtures/templates/404.html\', link: function (scope, elem, attrs) { } } });')
+        });
+
+        vfsFake.src(js)
+            .pipe(tpl2js())
+            .on('error', function (err) {
+                expect(err).to.exist;
+                expect(err).to.be.an.instanceof(PluginError);
                 done();
             });
     });
