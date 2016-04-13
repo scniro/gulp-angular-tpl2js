@@ -7,6 +7,12 @@
 [![Coverage](https://img.shields.io/coveralls/scniro/gulp-angular-tpl2js.svg?style=flat-square)](https://coveralls.io/github/scniro/gulp-angular-tpl2js)
 [![Climate](https://img.shields.io/codeclimate/github/scniro/gulp-angular-tpl2js.svg?label=climate&style=flat-square)](https://codeclimate.com/github/scniro/gulp-angular-tpl2js)
 
+> Inject AngularJS directive templates as inline JavaScript using [gulp](http://gulpjs.com/)
+
+## Regarding Issues
+
+This is just a simple [gulp plugin](http://gulpjs.com/plugins/), which means it's nothing more than a thin wrapper around [angular-tpl2js](https://github.com/scniro/angular-tpl2js). If it looks like you are having issues, please [open an issue at angular-tpl2js](https://github.com/scniro/angular-tpl2js/issues). Only create a new issue if it looks like you're having a problem with the plugin itself.
+
 ## Install
 
 ```
