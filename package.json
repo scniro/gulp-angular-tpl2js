@@ -13,9 +13,8 @@
     "chai": "4.0.2",
     "coveralls": "2.13.1",
     "gulp": "3.9.1",
-    "gulp-istanbul": "1.1.2",
-    "gulp-mocha": "4.3.1",
     "mocha": "3.4.2",
+    "nyc": "11.0.3",
     "vinyl": "2.0.2",
     "vinyl-fs-fake": "1.1.0"
   },
@@ -27,6 +26,15 @@
     "vinyl-bufferstream": "1.0.1"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "./node_modules/.bin/nyc mocha test/test.js --reporter dot"
+  },
+  "nyc": {
+    "report-dir": "./.coverage",
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "tempDirectory": "./.coverage/.temp"
   }
 }
