@@ -1,0 +1,7 @@
+.gitignore
+.travis.yml
+gulpfile.js
+test
+coverage
+node_modules
+.npmignore
